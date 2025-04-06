@@ -1,0 +1,164 @@
+.audio-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.audio-card-header {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.audio-card-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  word-break: break-word;
+}
+
+.audio-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.audio-card-actions button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.audio-card-actions button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.audio-card-info {
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 14px;
+  color: #666;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.audio-card-info p {
+  margin: 0;
+}
+
+.audio-card-content {
+  padding: 15px;
+}
+
+.progress-section, .transcription-section, .summary-section, .action-section {
+  margin-bottom: 20px;
+}
+
+.progress-section h4, .transcription-section h4, .summary-section h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background-color: #2196f3;
+  transition: width 0.3s ease;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.redo-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #4a90e2;
+  font-size: 18px;
+  padding: 5px;
+  transition: transform 0.2s;
+}
+
+.redo-button:hover {
+  transform: rotate(90deg);
+}
+
+.redo-button:disabled {
+  color: #b0c9e4;
+  cursor: not-allowed;
+}
+
+.scrollable-text {
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 4px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.action-button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #1976d2;
+}
+
+.action-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.play-button, .delete-button, .download-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.play-button:hover, .delete-button:hover, .download-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.delete-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

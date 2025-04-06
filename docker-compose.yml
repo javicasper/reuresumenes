@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  # Servicio de base de datos MongoDB
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-password}
+    networks:
+      - app-network
+
+  # Servicio del backend
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: server
+    restart: always
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+      - audio_files:/app/uploads
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://${MONGO_USER:-admin}:${MONGO_PASSWORD:-password}@mongodb:27017/audiodb?authSource=admin
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+  # Servicio del frontend
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: client
+    restart: always
+    ports:
+      - "8080:80"  # Cambiado de 80:80 a 8080:80 para evitar conflictos
+    depends_on:
+      - server
+    networks:
+      - app-network
+
+# Volúmenes
+volumes:
+  mongodb_data:
+  audio_files:
+
+# Redes
+networks:
+  app-network:
+    driver: bridge

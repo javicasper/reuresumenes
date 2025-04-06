@@ -1,0 +1,14 @@
+.audio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.empty-list {
+  text-align: center;
+  padding: 30px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  color: #666;
+  font-size: 16px;
+}
